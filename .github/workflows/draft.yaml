@@ -1,8 +1,6 @@
 name: draft
-on:
-  pull_request:
-    types: 
-      - opened
+on: pull_request
+  
 jobs:
   test:
     name: test1

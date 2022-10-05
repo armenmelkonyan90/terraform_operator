@@ -1,8 +1,7 @@
 name: draft
 on: 
   pull_request:
-    branches: 
-      - '!future1'
+
   
 jobs:
   test:

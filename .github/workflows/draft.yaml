@@ -3,8 +3,6 @@ on:
   pull_request:
     types: 
       - converted_to_draft
-    branches:
-      - future
 jobs:
   test:
     name: test1

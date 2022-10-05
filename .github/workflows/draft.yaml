@@ -2,6 +2,8 @@ name: draft
 on: 
   pull_request:
     types: opened
+    branches:
+      -future1
 
 jobs:
   test:

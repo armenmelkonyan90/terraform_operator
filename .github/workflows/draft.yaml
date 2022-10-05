@@ -4,7 +4,7 @@ on:
     types: 
       - converted_to_draft
     branches:
-      - github_actions_notification
+      - future
 jobs:
   test:
     name: test1

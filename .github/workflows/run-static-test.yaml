@@ -18,14 +18,14 @@ jobs:
     - name: Pull request info
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
-    - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == true || github.event.pull_request.type == ready_for_review
-      id: pytest
-      run: |
-        pip3 install requirment.txt
-        pytest test-app.py
+   # - name: Check pr
+  #    if: fromJSON(steps.PR.outputs.pr).draft  == true || github.event.pull_request.type == ready_for_review
+  #    id: pytest
+  #    run: |
+  #      pip3 install requirment.txt
+   #     pytest test-app.py
       
-      continue-on-error: true
+   #   continue-on-error: true
       
         
         

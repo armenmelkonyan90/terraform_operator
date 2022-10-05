@@ -1,0 +1,28 @@
+name: static-tests
+on:
+  pull_request:
+    types:
+      - ready_for_review
+  push:
+    
+jobs:
+  static-tests:
+  name: static-tests
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Pull request info
+      id: PR 
+      uses: 8BitJonny/gh-get-current-pr@2.1.1
+    - name: Check pr
+      if: fromJSON(steps.PR.outputs.pr).draft  == true | 
+      id: pytest
+      run: |
+        pip3 install requirment.txt
+        pytest test-app.py
+      
+      continue-on-error: true
+      
+        
+        

@@ -7,16 +7,19 @@ on:
     
 jobs:
   static-tests:
-  name: static-tests
-  runs-on: ubuntu-latest
-  steps:
+    name: static-tests
+    runs-on: ubuntu-latest
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: Print GitHub event action
+      run: |
+        echo "${{ github.event.action }}"
     - name: Pull request info
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
     - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == true | 
+      if: fromJSON(steps.PR.outputs.pr).draft  == true | github.event.pull_request.type == ready_for_review
       id: pytest
       run: |
         pip3 install requirment.txt

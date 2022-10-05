@@ -6,7 +6,7 @@ jobs:
   test:
     name: test1
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == true && github.head_ref != "future2"
+    if: github.event.pull_request.draft == true && ${{ github.ref == 'refs/heads/future2' }}
     steps:
     - uses: actions/checkout@v2  
     

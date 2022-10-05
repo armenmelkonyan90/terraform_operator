@@ -1,14 +1,12 @@
 name: draft
 on: 
   pull_request:
-    branches: 
-      - '!future2'
-      - '!future3'
+
 jobs:
   test:
     name: test1
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == true
+    if: github.event.pull_request.draft == true && ${{ github.head_ref }} != future2
     steps:
     - uses: actions/checkout@v2  
     

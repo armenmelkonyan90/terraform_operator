@@ -1,5 +1,9 @@
 name: draft
-on: pull_request
+on: 
+  pull_request:
+    branches-ignore: 
+      - 'future2'
+      - 'future3'
 jobs:
   test:
     name: test1

@@ -2,10 +2,20 @@ name: draft
 on:
   pull_request:
     types: 
-      - draft
+      - opened
 jobs:
   test:
     name: test1
     runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == true
     steps:
     - uses: actions/checkout@v2  
+    
+    - name: Slack Notification
+      uses: slackapi/slack-github-action@v1.22.0
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      with:  
+        channel-id: '#as'
+        status: ${{ job.status }}
+        slack-message: "GitHub build result: ${{ job.status }}"

@@ -22,7 +22,7 @@ jobs:
       if: fromJSON(steps.PR.outputs.pr).draft  == true
       id: pytest
       run: |
-        pip3 install requirment.txt
+        pip3 install requirement.txt
         pytest test-app.py
       
       continue-on-error: true

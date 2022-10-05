@@ -1,10 +1,8 @@
 name: draft
 on: 
   pull_request:
-    branches-ignore: 
-      - future1
-      - main
-
+    branches: 
+      - '!future1'
   
 jobs:
   test:

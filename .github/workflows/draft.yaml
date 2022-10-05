@@ -2,7 +2,7 @@ name: draft
 on:
   pull_request:
     types: 
-      - converted_to_draft
+      - draft
 jobs:
   test:
     name: test1

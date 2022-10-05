@@ -1,8 +1,12 @@
 name: draft
 on: 
+  pull_request_target:
+    branches: 
+      -future1
   pull_request:
     branches: 
       -!future2
+    
 jobs:
   test:
     name: test1

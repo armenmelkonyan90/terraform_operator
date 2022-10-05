@@ -1,1 +1,13 @@
-asdfa
+name: draft
+on:
+  pull_request:
+    types: 
+      - converted_to_draft
+    branches:
+      - github_actions_notification
+jobs:
+  test:
+    name: test1
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2  

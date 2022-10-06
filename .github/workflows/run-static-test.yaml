@@ -23,7 +23,7 @@ jobs:
     - name: test1
       run: echo "${{ github.event.pull_request.ready_for_review }}"
     - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == false || ${{ github.event.pull_request.ready_for_review }} == true
+      if: fromJSON(steps.PR.outputs.pr).draft  == false || ${{ github.event.action }}  == "ready_for_review"
       id: pytest
       run: |
         pip3 install -r requirement.txt

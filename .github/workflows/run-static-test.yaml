@@ -26,7 +26,7 @@ jobs:
       run: |
         echo "$GITHUB_CONTEXT"
     - name: Check pr
-      if: toJson(steps.PR.outputs.pr.draft)  == false
+      if: toJson(steps.PR.outputs.pr.draft)  != false
       id: pytest
       run: |
         pip3 install -r requirement.txt

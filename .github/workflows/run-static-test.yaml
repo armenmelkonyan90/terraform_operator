@@ -20,8 +20,10 @@ jobs:
       uses: 8BitJonny/gh-get-current-pr@2.1.1
     - name: test
       run: echo ${{ toJson(steps.PR.outputs.pr) }}
+    - name: test1
+      run: echo "${{ github.event.pull_request.ready_for_review }}"
     - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == false || github.event.pull_request.ready_for_review == true
+      if: fromJSON(steps.PR.outputs.pr).draft  == false || ${{ github.event.pull_request.ready_for_review }} == true
       id: pytest
       run: |
         pip3 install -r requirement.txt

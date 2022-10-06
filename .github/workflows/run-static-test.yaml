@@ -19,12 +19,13 @@ jobs:
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
     - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == true
+      if: fromJSON(steps.PR.outputs.pr).draft  != true
       id: pytest
       run: |
         pip3 install -r requirement.txt
         pytest test-app.py
       
-#       continue-on-error: true
+
+      
         
         

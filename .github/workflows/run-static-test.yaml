@@ -19,14 +19,14 @@ jobs:
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
     - name: test1
-      run: echo ${{ fromJSON(steps.PR.outputs.pr).draft }}
+      run: echo ${{ fromJson(steps.PR.outputs.pr).draft }}
     - name: test
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT"
     - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == false
+      if: toJson(steps.PR.outputs.pr).draft  == false
       id: pytest
       run: |
         pip3 install -r requirement.txt

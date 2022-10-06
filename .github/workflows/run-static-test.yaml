@@ -19,7 +19,10 @@ jobs:
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
     - name: test
-      run: echo ${{ github.event }}
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
     - name: Check pr
       if: fromJSON(steps.PR.outputs.pr).draft  != true
       id: pytest

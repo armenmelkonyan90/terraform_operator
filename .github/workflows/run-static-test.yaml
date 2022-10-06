@@ -20,7 +20,7 @@ jobs:
       uses: 8BitJonny/gh-get-current-pr@2.1.1
     - name: test
       run: |
-        echo steps.PR.outputs
+        echo ${{ steps.PR.outputs }}
     - name: Check pr
       if: fromJSON(steps.PR.outputs.pr).draft  != true
       id: pytest

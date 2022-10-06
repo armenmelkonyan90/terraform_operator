@@ -21,7 +21,7 @@ jobs:
     - name: test
       run: echo ${{ toJson(steps.PR.outputs.pr) }}
     - name: Check pr
-      if: fromJSON(steps.PR.outputs.pr).draft  == true
+      if: fromJSON(steps.PR.outputs.pr).draft  == false
       id: pytest
       run: |
         pip3 install -r requirement.txt

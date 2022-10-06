@@ -7,15 +7,15 @@ on:
     
 jobs:
   static-tests:
-    name: static-tests
+    name: Run in ubuntu
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Pull request info
+    - name: Get information about pull requests
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
-    - name: Check pr
+    - name: Run static tests
       if: fromJSON(steps.PR.outputs.pr).draft  == false || ${{ github.event.action }}  == "ready_for_review"
       id: pytest
       run: |

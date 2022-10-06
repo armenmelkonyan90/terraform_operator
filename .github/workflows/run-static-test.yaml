@@ -18,6 +18,8 @@ jobs:
     - name: Pull request info
       id: PR 
       uses: 8BitJonny/gh-get-current-pr@2.1.1
+    - name: test
+      run: echo ${{ toJson(steps.PR.outputs.pr) }}
     - name: Check pr
       if: fromJSON(steps.PR.outputs.pr).draft  == true
       id: pytest

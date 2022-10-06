@@ -25,6 +25,6 @@ jobs:
         pip3 install -r requirement.txt
         pytest test-app.py
       
-      continue-on-error: true
+#       continue-on-error: true
         
         

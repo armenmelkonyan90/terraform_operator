@@ -1,10 +1,11 @@
-name fb notification
-on: 
-  push
+name: fb notification
+on: [push]
+
 jobs:
-  send notifivation:
-  steps:
-  - name: send custom message
+  send_notifivation:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: send custom message
       uses: appleboy/facebook-action@master
       with:
         fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}

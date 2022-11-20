@@ -1,3 +1,2 @@
 # terraform_operator11
-  
-  
+ 

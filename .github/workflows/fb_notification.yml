@@ -9,6 +9,6 @@ jobs:
       uses: appleboy/facebook-action@master
       with:
         fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}
-        fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
+        #fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
         to: ${{ secrets.FB_TO }}
         message: send message from action

@@ -12,4 +12,3 @@ jobs:
         fb_verify_token: ${{ secrets.FB_VERIFY_TOKEN }}
         to: ${{ secrets.FB_TO }}
         args: The ${{ github.event_name }} event triggered first step.
-        message: send message from action

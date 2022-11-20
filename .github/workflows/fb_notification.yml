@@ -1,6 +1,6 @@
 name: fb notification
 on: [push]
-
+  
 jobs:
   send_notifivation:
     runs-on: ubuntu-latest 

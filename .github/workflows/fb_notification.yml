@@ -5,7 +5,7 @@ jobs:
   send_notifivation:
     runs-on: ubuntu-latest 
     steps:
-    - name: send custom message
+    - name: send custom message   
       uses: appleboy/facebook-action@master
       with:
         fb_page_token: ${{ secrets.FB_PAGE_TOKEN }}

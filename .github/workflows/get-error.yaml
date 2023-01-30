@@ -41,20 +41,11 @@ jobs:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
   test-job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Call Hello World 
         id: hello-world
         uses: actions/hello-world-action@v1
       - name: Comment
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Output - ${{ steps.hello-world.outputs.random-number.value }}'
-            })
+        run: |
+           echo 'output - ${{ steps.hello-world.outputs.random-number.value }}'

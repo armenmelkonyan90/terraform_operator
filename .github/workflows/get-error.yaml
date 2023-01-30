@@ -25,7 +25,8 @@ jobs:
           ls
       - name: any1
         run: |
-          cat a.txt
+          cat a.txt > b.txt
+          cat b.txt
         continue-on-error: true
           
       - name: print-steps

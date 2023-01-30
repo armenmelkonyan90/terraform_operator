@@ -28,5 +28,5 @@ jobs:
           
       - name: print-steps
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJson(steps.any1) }}
         run: echo "$STEPS_CONTEXT"

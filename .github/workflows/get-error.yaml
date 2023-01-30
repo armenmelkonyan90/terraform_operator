@@ -3,7 +3,9 @@ on:
   push:
 
 jobs:
-  pre-commit:
+  test:
+    name: test1
+    runs-on: ubuntu-latest
     steps:
       - name: any
         run: |

@@ -1,6 +1,6 @@
 name: mydocker
 on: 
-  push: 
+  
 
 jobs:
   docker1:

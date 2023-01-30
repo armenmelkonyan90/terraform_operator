@@ -1,5 +1,5 @@
 name: fb notification
-on: [push]
+on: 
   
 jobs:
   send_notifivation:

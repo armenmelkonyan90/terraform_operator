@@ -31,4 +31,4 @@ jobs:
       - name: print-steps
         env:
           STEPS_CONTEXT: ${{ toJson(steps.setup.stderror) }}
-        run: echo "$STEPS_CONTEXT"
+        run: echo $STEPS_CONTEXT

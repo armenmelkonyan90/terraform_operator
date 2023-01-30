@@ -14,6 +14,7 @@ jobs:
       - name: any1
         run: |
           cat a.txt
+        continue-on-error: true
           
       - name: print-steps
         env:

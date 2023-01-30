@@ -1,0 +1,19 @@
+name: get-errors
+on:
+  push:
+
+jobs:
+  pre-commit:
+    steps:
+      - name: any
+        run: |
+          echo "hello world"
+          ls
+      - name: any1
+        run: |
+          cat a.txt
+          
+      - name: print-steps
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"

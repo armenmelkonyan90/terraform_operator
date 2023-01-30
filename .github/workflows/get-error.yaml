@@ -48,4 +48,4 @@ jobs:
         uses: actions/hello-world-action@v1
       - name: Comment
         run: |
-           echo 'output - ${{ steps.hello-world.outputs.random-number.value }}'
+           echo '${{ toJSON(steps) }}'

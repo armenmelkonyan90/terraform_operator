@@ -4,49 +4,15 @@ on:
 
 jobs:
   test:
-    name: test1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: setup
-        uses: actions/setup-node@v3
-        continue-on-error: true
+
+      - run: mkdir -p path/to/artifact
+
+      - run: echo hello > path/to/artifact/world.txt
+
+      - uses: actions/upload-artifact@v3
         with:
-            node-version: 16
-            cache: 'npm'
-      - name: ci
-        run: npm ci
-        continue-on-error: true
-      - run: npm test
-        continue-on-error: true
-      - name: any
-        run: |
-          echo "hello world"
-          ls
-      - name: any1
-        run: |
-          cat a.txt > b.txt
-          cat b.txt
-        continue-on-error: true
-          
-      - name: print-steps
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps.setup.stderror) }}
-        run: echo $STEPS_CONTEXT
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-  test-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call Hello World 
-        id: hello-world
-        uses: actions/hello-world-action@v1
-      - name: Comment
-        run: |
-           echo '${{ toJSON(steps) }}'
+          name: my-artifact
+          path: path/to/artifact/world.txt

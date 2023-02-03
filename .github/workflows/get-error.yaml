@@ -1,18 +1,19 @@
 name: get-errors
 on:
-  push:
+  pull_request:
+    types: 
+      - opened
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - run: mkdir -p path/to/artifact
-
-      - run: echo hello > path/to/artifact/world.txt
-
-      - uses: actions/upload-artifact@v3
+      - name: checkout
+        uses: actions/checkout@v3
         with:
-          name: my-artifact
-          path: path/to/artifact/world.txt
+           ref: ${{github.event.pull_request.head.ref}}
+      - name: echo-branch
+        run: | 
+          echo  ${{ github.event.pull_request.head.ref }}
+
+      
